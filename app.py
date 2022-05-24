@@ -207,6 +207,28 @@ def show_venue(venue_id):
         Show.start_time > datetime.now()).join(Artist, Show.artist_id == Artist.id).add_columns(Artist.id, Artist.name,
                                                                                                 Artist.image_link,
                                                                                                 Show.start_time).all()
+  past_shows = []
+  upcoming_shows = []
+  
+  for i in upcoming:
+        upcoming_shows.append({
+            'artist_id': i[1],
+            'artist_name': i[2],
+            'image_link': i[3],
+            'start_time': str(i[4])
+        })
+
+  for i in past:
+        past_shows.append({
+            'artist_id': i[1],
+            'artist_name': i[2],
+            'image_link': i[3],
+            'start_time': str(i[4])
+        })
+        
+  if venue is None:
+      abort(404)
+      
   data = {
       'id': venue_id,
       'genres': venue.genre,
@@ -218,10 +240,10 @@ def show_venue(venue_id):
       'facebook_link': venue.facebook_link,
       'seeking_talent': venue.seeking_talent,
       'seeking_description': venue.seeking_description,
-      'upcoming_shows_count': len(upcoming),
-      'past_show_count':len(past),
-      'upcoming_shows': upcoming,
-      'past_shows': past
+      'upcoming_shows_count': len(upcoming_shows),
+      'past_show_count':len(past_shows),
+      'upcoming_shows': upcoming_shows,
+      'past_shows': past_shows
       }
 
   return render_template('pages/show_venue.html', venue=data)
