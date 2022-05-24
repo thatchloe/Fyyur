@@ -284,16 +284,8 @@ def create_venue_submission():
         print(e)
         flash('An error occurred. Venue ' + request.form['name'] + ' could not be added')
         db.session.rollback()
-  finally:
-        db.session.close()
   return render_template('pages/home.html')
 
-  # on successful db insert, flash success
-  flash('Venue ' + request.form['name'] + ' was successfully listed!')
-  # TODO: on unsuccessful db insert, flash an error instead.
-  # e.g., flash('An error occurred. Venue ' + data.name + ' could not be listed.')
-  # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
-  return render_template('pages/home.html')
 
 @app.route('/venues/<venue_id>', methods=['DELETE'])
 def delete_venue(venue_id):
@@ -304,8 +296,6 @@ def delete_venue(venue_id):
       db.session.commit()
   except:
       db.session.rollback()
-  finally:
-      db.session.close()
   # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
   # clicking that button delete it from the db then redirect the user to the homepage
   return render_template('pages/home.html')
@@ -340,16 +330,22 @@ def show_artist(artist_id):
   # shows the artist page with the given artist_id
   # TODO: replace with real artist data from the artist table, using artist_id
   artist = Artist.query.filter(Artist.id == artist_id).first()
+  
   if artist == None:
       abort(404)
+  
   shows = artist.shows
+  
   past_shows = []
   upcoming_shows =[]
+  
+  
   for show in shows:
       if show.time < datetime.now():
           past_shows.append(show)
       elif show.time > datetime.now():
           upcoming_shows.append(show)
+  
   data = {
       'id': artist_id,
       'genres': artist.genre,
@@ -436,10 +432,11 @@ def edit_venue_submission(venue_id):
     db.session.commit()
     # on successful db insert, flash success
     flash('Venue ' + request.form['name'] + ' was successfully listed!')
-  except exc.SQLAlchemyError:
+  except exc.SQLAlchemyError as e:
     # TODO: on unsuccessful db insert, flash an error instead.
     # e.g., flash('An error occurred. Venue ' + data.name + ' could not be listed.')
     # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
+    print(e)
     flash('An error occurred. Venue ' + request.form['name'] + ' could not be listed.')
   return redirect(url_for('show_venue', venue_id=venue_id))
 
@@ -528,10 +525,11 @@ def create_show_submission():
 
     # on successful db insert, flash success
         flash('Show was successfully listed!')
-  except exc.SQLAlchemyError:
+  except exc.SQLAlchemyError as e:
     # TODO: on unsuccessful db insert, flash an error instead.
     # e.g., flash('An error occurred. Show could not be listed.')
     # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
+        print(e)
         flash('An error occured. Show could not be listed.')
   return render_template('pages/home.html')
 
