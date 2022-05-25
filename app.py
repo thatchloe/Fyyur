@@ -263,6 +263,7 @@ def create_venue_form():
 def create_venue_submission():
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
+
   venue = Venue(
             name=request.form['name'],
             city=request.form['city'],
@@ -273,8 +274,8 @@ def create_venue_submission():
             image_link=request.form['image_link'],
             facebook_link=request.form['facebook_link'],
             website=request.form['website_link'],
-            seeking_talent= True if request.form['seeking_talent'] == 'y' else False,
-            seeking_description=request.form['seeking_description']
+            seeking_talent= True if request.form.get('seeking_talent') == 'y' else False,
+            seeking_description=request.form["seeking_description"]
         )
   db.session.add(venue)
   try:
@@ -387,7 +388,7 @@ def edit_artist_submission(artist_id):
       website=request.form['website_link'],
       image_link=request.form['image_link'],
       facebook_link=request.form['facebook_link'],
-      seeking_venue= True if request.form['seeking_venue'] == 'y' else False,
+      seeking_venue= True if request.form.get('seeking_talent') == 'y' else False,
       seeking_description=request.form['seeking_description']
    )
     
