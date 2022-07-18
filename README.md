@@ -38,47 +38,21 @@ npm init -y
 npm install bootstrap@3
 ```
 
-
-## Main Files: Project Structure
-
-  ```sh
-  ├── README.md
-  ├── app.py *** the main driver of the app. Includes your SQLAlchemy models.
-                    "python app.py" to run after installing dependencies
-  ├── config.py *** Database URLs, CSRF generation, etc
-  ├── error.log
-  ├── forms.py *** Your forms
-  ├── requirements.txt *** The dependencies we need to install with "pip3 install -r requirements.txt"
-  ├── static
-  │   ├── css 
-  │   ├── font
-  │   ├── ico
-  │   ├── img
-  │   └── js
-  └── templates
-      ├── errors
-      ├── forms
-      ├── layouts
-      └── pages
-  ```
-
-
-
 ## Development Setup:
 
-4. **Install the dependencies:**
+1. **Install the dependencies:**
 ```
 pip install -r requirements.txt
 ```
 
-5. **Run the development server:**
+2. **Run the development server:**
 ```
 export FLASK_APP=myapp
 export FLASK_ENV=development # enables debug mode
 python3 app.py
 ```
 
-6. **Verify on the Browser**<br>
+3. **Verify on the Browser**<br>
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000) 
 
 ## References : 
