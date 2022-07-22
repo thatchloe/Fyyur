@@ -1,9 +1,10 @@
-Fyyur
+Music
+
 -----
 
 ## Introduction
 
-Fyyur is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.
+This is a musical venue and artist booking site that facilitates the discovery and bookings of shows between local performing artists and venues. This site lets you list new artists and venues, discover them, and list shows with artists as a venue owner.
 
 
 
@@ -55,5 +56,4 @@ python3 app.py
 3. **Verify on the Browser**<br>
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000) 
 
-## References : 
-Udacity Fullstack Web development Nanodegree
+
