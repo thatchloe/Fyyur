@@ -6,6 +6,7 @@ import logging
 from logging import Formatter, FileHandler
 
 import babel
+import datetime
 import dateutil.parser
 from flask import Flask, render_template, request, flash, redirect, url_for, abort
 from flask_migrate import Migrate
@@ -114,29 +115,18 @@ def index():
 
 @app.route('/venues')
 def venues():
-    # Querying for cites and states of all venues and unique them
-    areas = db.session.query(Venue.city, Venue.state).distinct(Venue.city, Venue.state)
     response = []
-    for area in areas:
-
-        # Querying venues and filter them based on area (city, venue)
-        result = Venue.query.filter(Venue.state == area.state).filter(Venue.city == area.city).all()
-
+    areas = db.session.query(Venue.city, Venue.state).distinct(Venue.city, Venue.state)
+    for area in areas :
+        venues = Venue.query.filter(Venue.state == area.state).filter(Venue.city == area.city).all()
         venue_data = []
-
-        # Creating venues' response
-        for venue in result:
-            venue_data.append({
-                'id': venue.id,
+        for venue in venues:
+            venue_data.append({'id': venue.id,
                 'name': venue.name,
                 'num_upcoming_shows': len(db.session.query(Show).filter(Show.start_time > datetime.now()).all())
             })
-
-            response.append({
-                'city': area.city,
-                'state': area.state,
-                'venues': venue_data
-            })
+            response.append({'city': area.city, 'state': area.state, 'venues': venue_data})
+        
 
     return render_template('pages/venues.html', areas=response)
 
@@ -144,11 +134,15 @@ def venues():
 @app.route('/venues/search', methods=['POST'])
 def search_venues():
     search_term = request.form.get('search_term', '')
-    result = db.session.query(Venue).filter(Venue.name.ilike(f'%{search_term}%')).all()
-    count = len(result)
+    venues = db.session.query(Venue)
+    results = []
+    for venue in venues:
+        if search_term in venue.name:
+            results.append(venue)
+    count = len(results)
     response = {
         "count": count,
-        "data": result
+        "data": results
     }
     return render_template('pages/search_venues.html', results=response,
                            search_term=request.form.get('search_term', ''))
@@ -287,8 +281,6 @@ def delete_venue(venue_id):
         db.session.commit()
     except:
         db.session.rollback()
-    finally:
-        db.session.close()
     return render_template('pages/home.html')
 
 
@@ -298,17 +290,21 @@ def delete_venue(venue_id):
 @app.route('/artists')
 def artists():
     response = Artist.query.all()
-        return render_template('pages/artists.html', artists=response)
+    return render_template('pages/artists.html', artists=response)
 
 
 @app.route('/artists/search', methods=['POST'])
 def search_artists():
     search_term = request.form.get('search_term', '')
-    result = db.session.query(Artist).filter(Artist.name.ilike(f'%{search_term}%')).all()
-    count = len(result)
+    artists = db.session.query(Artist)
+    results = []
+    for artist in artists:
+        if search_term in artist.name:
+            results.append(artist)
+    count = len(results)
     response = {
         "count": count,
-        "data": result
+        "data": results
     }
     return render_template('pages/search_artists.html', results=response, search_term=search_term)
 
@@ -397,12 +393,9 @@ def create_artist_submission():
         db.session.add(artist)
         db.session.commit()
         flash('Artist ' + request.form['name'] + ' was successfully listed!')
-    except Exception as e:
-        print(e)
+    except Exception:
         flash('An error occurred. Artist ' + request.form['name'] + ' could not be added')
         db.session.rollback()
-    finally:
-        db.session.close()
     return render_template('pages/home.html')
 
 
