@@ -28,12 +28,12 @@ pip install Flask-Migrate
 ```
 
 ### 2. Frontend Dependencies
-**HTML**, **CSS**, and **Javascript** with [Bootstrap 3](https://getbootstrap.com/docs/3.4/customize/)  
+
 ```
 node -v
 npm -v
 ```
-Install [Bootstrap 3](https://getbootstrap.com/docs/3.3/getting-started/) for the website's frontend:
+
 ```
 npm init -y
 npm install bootstrap@3
@@ -53,8 +53,8 @@ export FLASK_ENV=development # enables debug mode
 python3 app.py
 ```
 
-3. **Verify on the Browser**<br>
-[http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://localhost:5000](http://localhost:5000) 
+3. **Demo**<br>
+https://music-fyyur.herokuapp.com/
 
 ## References
 Udacity's fullstack development nanodegree
