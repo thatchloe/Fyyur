@@ -1,17 +1,9 @@
 alabaster==0.7.12
 alembic==1.7.7
-astroid @ file:///D:/bld/astroid_1650583109022/work
 Babel==2.9.0
-bcrypt @ file:///D:/bld/bcrypt_1636021355911/work
 binaryornot==0.4.4
-brotlipy @ file:///D:/bld/brotlipy_1636012381660/work
 certifi==2021.10.8
-cffi @ file:///D:/bld/cffi_1636046293990/work
-chardet @ file:///D:/bld/chardet_1649184338608/work
-click @ file:///D:/bld/click_1651215448481/work
 cryptography==36.0.2
-debugpy @ file:///C:/ci/debugpy_1637073815078/work
-docutils @ file:///D:/bld/docutils_1637960763351/work
 Fabric3==1.14.post1
 Flask==2.1.1
 Flask-Migrate==3.1.0
@@ -19,48 +11,26 @@ Flask-Moment==0.11.0
 Flask-SQLAlchemy==2.4.4
 Flask-WTF==0.14.3
 greenlet==1.1.2
-importlib-metadata @ file:///D:/bld/importlib-metadata_1648728505175/work
 intervaltree==3.0.2
 invoke==1.7.0
-ipykernel @ file:///D:/bld/ipykernel_1649684468721/work/dist/ipykernel-6.13.0-py3-none-any.whl
-ipython @ file:///D:/bld/ipython_1651240746850/work
 ipython-genutils==0.2.0
 itsdangerous==2.1.2
-jedi @ file:///D:/bld/jedi_1649067326950/work
-jellyfish @ file:///D:/bld/jellyfish_1641751695265/work
 Jinja2==3.1.1
-jupyter-core @ file:///D:/bld/jupyter_core_1645024505069/work
-keyring @ file:///D:/bld/keyring_1643122326371/work
-lazy-object-proxy @ file:///D:/bld/lazy-object-proxy_1639599249107/work
 Mako==1.2.0
 MarkupSafe==2.1.1
 mccabe==0.6.1
-mistune @ file:///D:/bld/mistune_1635844874781/work
-mypy-extensions @ file:///D:/bld/mypy_extensions_1649013491274/work
 pathlib2==2.3.7.post1
-pluggy @ file:///D:/bld/pluggy_1648773152532/work
 poyo==0.5.0
-psutil @ file:///D:/bld/psutil_1640887336249/work
-psycopg2 @ file:///C:/ci/psycopg2_1594305172475/work
-PyNaCl @ file:///D:/bld/pynacl_1641804356553/work
 PyQt5==5.12.3
 PyQt5-sip==4.19.18
 PyQtChart==5.12
 PyQtWebEngine==5.12.1
-pyrsistent @ file:///C:/ci/pyrsistent_1636111468851/work
-PySocks @ file:///D:/bld/pysocks_1648857453381/work
 python-dateutil==2.6.0
 pywin32==303
-pywin32-ctypes @ file:///D:/bld/pywin32-ctypes_1648607921806/work
-PyYAML @ file:///D:/bld/pyyaml_1636139895442/work
-pyzmq @ file:///D:/bld/pyzmq_1635877383625/work
-Rtree @ file:///D:/bld/rtree_1649367802780/work
 sphinxcontrib-applehelp==1.0.2
 sphinxcontrib-devhelp==1.0.2
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
-spyder @ file:///D:/bld/spyder_1648856536887/work
-spyder-kernels @ file:///D:/bld/spyder-kernels_1648648977418/work
 SQLAlchemy==1.4.35
 text-unidecode==1.3
 tornado @ file:///D:/bld/tornado_1635819758615/work
