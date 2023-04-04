@@ -2,7 +2,6 @@ alabaster==0.7.12
 alembic==1.7.7
 astroid @ file:///D:/bld/astroid_1650583109022/work
 Babel==2.9.0
-backports.functools-lru-cache @ 
 bcrypt @ file:///D:/bld/bcrypt_1636021355911/work
 binaryornot==0.4.4
 brotlipy @ file:///D:/bld/brotlipy_1636012381660/work
