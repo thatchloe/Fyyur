@@ -38,4 +38,3 @@ Werkzeug==2.0.3
 wincertstore==0.2
 WTForms==3.0.1
 
-zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1649012893348/work
