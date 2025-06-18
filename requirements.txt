@@ -36,4 +36,4 @@ Werkzeug==2.0.3
 wincertstore==0.2
 WTForms==3.0.1
 greenlet>=2.0.2
-
+gunicorn==21.2.0
