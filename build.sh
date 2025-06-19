@@ -3,7 +3,7 @@
 
 # Upgrade essential tools
 pip install pip==20.1.1
-pip install wheel setuptools
+pip install setuptools
 
 # Install Python dependencies
 
