@@ -4,6 +4,7 @@
 # Upgrade essential tools
 pip install pip==20.1.1
 pip install setuptools
+pip install python3.11-distutils
 
 # Install Python dependencies
 
