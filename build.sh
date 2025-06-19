@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
 
-# Upgrade essential tools
+
+
+
+
 pip install pip==20.1.1
-pip install setuptools
+pip install wheel setuptools
+
+
 
 # Install Python dependencies
 
