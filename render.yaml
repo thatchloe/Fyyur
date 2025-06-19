@@ -3,7 +3,7 @@ services:
     plan: free
     name: fyyur
     runtime: python
-    pythonVersion: 3.11.9
+    pythonVersion: 3.10
     buildCommand: './build.sh'
     startCommand: 'gunicorn app:app'
    
